@@ -6,6 +6,15 @@ interface NotesHttpResponse {
   totalPages: number;
 }
 
+// TAGS
+export type Tag = "Work" | "Todo" | "Personal" | "Meeting" | "Shopping";
+export const tags: Tag[] = ["Work", "Todo", "Personal", "Meeting", "Shopping"];
+export async function fetchNotesByTag(tag: Tag) {
+  return Promise.resolve([]);
+}
+
+// NOTES
+
 export const fetchNotes = async (
   search: string,
   page: number

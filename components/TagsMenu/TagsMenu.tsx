@@ -1,11 +1,9 @@
+"use client";
+
 import { useState } from "react";
 import css from "./TagsMenu.module.css";
 
-const tags = [
-  { name: "JavaScript", url: "/tags/javascript" },
-  { name: "TypeScript", url: "/tags/typescript" },
-  { name: "React", url: "/tags/react" },
-];
+import { tags } from "../../lib/api";
 
 const TagsMenu = () => {
   const [open, setOpen] = useState(false);
@@ -23,9 +21,9 @@ const TagsMenu = () => {
       {open && (
         <ul className={css.menuList}>
           {tags.map((tag) => (
-            <li key={tag.name} className={css.menuItem}>
-              <a href={tag.url} className={css.menuLink}>
-                {tag.name}
+            <li key={tag} className={css.menuItem}>
+              <a href={`/notes?tag=${tag}`} className={css.menuLink}>
+                {tag}
               </a>
             </li>
           ))}

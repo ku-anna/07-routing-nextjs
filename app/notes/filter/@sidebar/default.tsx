@@ -7,13 +7,13 @@ const NotesSidebar = async () => {
   return (
     <ul className={css.menuList}>
       <li key="all" className={css.sidebarItem}>
-        <Link href={`/notes/filter/all`} className={css.memuLink}>
+        <Link href={`/notes/filter/all`} className={css.menuLink}>
           All notes
         </Link>
       </li>
       {localTags.map((tag) => (
-        <li key={tag} className={css.memuItem}>
-          <Link href={`/notes/filter/${tag}`} className={css.memuLink}>
+        <li key={tag} className={css.menuItem}>
+          <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
             {tag}
           </Link>
         </li>

@@ -1,6 +1,6 @@
 // app/notes/filter/layout.tsx
 import SidebarNotes from "./@sidebar/SidebarNotes";
-import styles from "./SidebarNotes.module.css"; // опціонально для стилізації
+import styles from "@/app/notes/filter/layout.module.css";
 
 export default function FilterLayout({
   children,
@@ -8,11 +8,12 @@ export default function FilterLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={styles.layout}>
-      <aside className={styles.sidebar}>
-        <SidebarNotes />
-      </aside>
-      <main className={styles.main}>{children}</main>
-    </div>
+    <>
+      <SidebarNotes />
+      <div className={styles.layout}>
+        <aside className={styles.sidebar}></aside>
+        <main className={styles.main}>{children}</main>
+      </div>
+    </>
   );
 }

@@ -1,19 +1,19 @@
 import Link from "next/link";
-import css from "./sidebar.module.css";
+import css from "@/app/notes/filter/@sidebar/SidebarNotes.module.css";
 
 const NotesSidebar = async () => {
   const localTags = ["Work", "Todo", "Personal", "Meeting", "Shopping"];
 
   return (
-    <ul className={css.sidebar}>
+    <ul className={css.menuList}>
       <li key="all" className={css.sidebarItem}>
-        <Link href={`/notes/filter/all`} className={css.sidebarLink}>
+        <Link href={`/notes/filter/all`} className={css.memuLink}>
           All notes
         </Link>
       </li>
       {localTags.map((tag) => (
-        <li key={tag} className={css.sidebarItem}>
-          <Link href={`/notes/filter/${tag}`} className={css.sidebarLink}>
+        <li key={tag} className={css.memuItem}>
+          <Link href={`/notes/filter/${tag}`} className={css.memuLink}>
             {tag}
           </Link>
         </li>

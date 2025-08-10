@@ -4,6 +4,7 @@ import { FormValues, Note } from "@/types/note";
 interface NotesHttpResponse {
   notes: Note[];
   totalPages: number;
+  currentPage: number;
 }
 
 // TAGS
@@ -15,23 +16,40 @@ export async function fetchNotesByTag(tag: Tag) {
 
 // NOTES
 
+interface NotesHttpResponse {
+  notes: Note[];
+  totalPages: number;
+}
+
+interface NotesHttpResponseWithPage extends NotesHttpResponse {
+  currentPage: number;
+}
+
 export const fetchNotes = async (
   search: string,
-  page: number
-): Promise<NotesHttpResponse> => {
+  page: number,
+  tag: string
+): Promise<NotesHttpResponseWithPage> => {
   const params = {
     ...(search && { search }),
+    ...(tag && { tag }),
     page,
     perPage: 12,
   };
+
   const headers = {
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
   };
+
   const response = await axios.get<NotesHttpResponse>(
     "https://notehub-public.goit.study/api/notes",
     { params, headers }
   );
-  return response.data;
+
+  return {
+    ...response.data,
+    currentPage: page, // ← додаємо явно
+  };
 };
 
 export const createNote = async (note: FormValues): Promise<Note> => {

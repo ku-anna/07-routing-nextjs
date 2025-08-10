@@ -1,5 +1,6 @@
 import NotesClient from "./Notes.client";
 import { fetchNotes } from "@/lib/api";
+import NotesSidebar from "./filter/@sidebar/SidebarNotes";
 
 export default async function Notes() {
   const initialQuery = "";
@@ -8,10 +9,13 @@ export default async function Notes() {
   const initialData = await fetchNotes(initialQuery, initialPage);
 
   return (
-    <NotesClient
-      initialData={initialData}
-      initialQuery={initialQuery}
-      initialPage={initialPage}
-    />
+    <>
+      <NotesSidebar />
+      <NotesClient
+        initialData={initialData}
+        initialQuery={initialQuery}
+        initialPage={initialPage}
+      />
+    </>
   );
 }

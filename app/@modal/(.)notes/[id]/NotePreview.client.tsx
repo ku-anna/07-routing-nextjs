@@ -11,7 +11,7 @@ import { Modal } from "@/components/Modal/Modal";
 
 import css from "./NotesPreview.module.css";
 
-export default function NotesPreviewClient() {
+export default function NotePreviewClient() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 

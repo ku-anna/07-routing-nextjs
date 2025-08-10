@@ -10,7 +10,7 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-const NoteDetails = async ({ params }: Props) => {
+const NoteDetailsPage = async ({ params }: Props) => {
   const { id } = await params;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
@@ -25,4 +25,4 @@ const NoteDetails = async ({ params }: Props) => {
   );
 };
 
-export default NoteDetails;
+export default NoteDetailsPage;

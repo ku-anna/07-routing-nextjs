@@ -1,7 +1,7 @@
 // app/notes/[id]/NoteDetails.client.tsx
 
 "use client";
-import css from "./NotePreview.module.css";
+import css from "./NoteDetails.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import { fetchNoteById } from "@/lib/api";
@@ -9,7 +9,7 @@ import { Loader } from "@/components/Loader/Loader";
 import { ErrorMessage } from "@/components/ErrorMessage/ErrorMessage";
 import { Modal } from "@/components/Modal/Modal";
 
-const NotePreviewClient = () => {
+const NoteDetailsClient = () => {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const {
@@ -51,4 +51,4 @@ const NotePreviewClient = () => {
   );
 };
 
-export default NotePreviewClient;
+export default NoteDetailsClient;

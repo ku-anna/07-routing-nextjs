@@ -5,6 +5,7 @@ interface NotesHttpResponse {
   notes: Note[];
   totalPages: number;
   currentPage: number;
+  tag: string;
 }
 
 // TAGS

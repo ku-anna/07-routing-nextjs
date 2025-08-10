@@ -1,5 +1,5 @@
 import Link from "next/link";
-import css from "@/app/notes/filter/@sidebar/SidebarNotes.module.css";
+import css from "@/app/notes/filter/@sidebar/Sidebar.module.css";
 
 const NotesSidebar = async () => {
   const localTags = ["Work", "Todo", "Personal", "Meeting", "Shopping"];

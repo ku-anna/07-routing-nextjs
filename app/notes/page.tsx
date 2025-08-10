@@ -1,6 +1,7 @@
 import NotesClient from "./Notes.client";
 import { fetchNotes } from "@/lib/api";
 import NotesLayout from "./filter/@sidebar/default";
+import NotesSidebar from "./filter/@sidebar/default";
 
 export default async function Notes() {
   const initialQuery = "";

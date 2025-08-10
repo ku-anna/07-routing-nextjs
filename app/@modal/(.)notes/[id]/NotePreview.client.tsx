@@ -9,7 +9,7 @@ import { Loader } from "@/components/Loader/Loader";
 import { ErrorMessage } from "@/components/ErrorMessage/ErrorMessage";
 import { Modal } from "@/components/Modal/Modal";
 
-import css from "./NotesPreview.module.css";
+import css from "./NotePreview.module.css";
 
 export default function NotePreviewClient() {
   const { id } = useParams<{ id: string }>();

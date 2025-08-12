@@ -1,4 +1,3 @@
-// app/notes/Notes.client.tsx
 "use client";
 import { SearchBox } from "@/components/SearchBox/SearchBox";
 import css from "./NotesPage.module.css";
@@ -49,7 +48,6 @@ export default function NotesClient({
     queryFn: () => fetchNotes(debouncedQuery, currentPage, tag),
     placeholderData: keepPreviousData,
     initialData,
-    refetchOnMount: false,
   });
 
   const totalPages = data?.totalPages ?? 0;

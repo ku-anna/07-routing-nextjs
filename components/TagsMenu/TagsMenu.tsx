@@ -1,15 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+
 import css from "./TagsMenu.module.css";
 import Link from "next/link";
 import { tags } from "../../lib/api";
 
 const TagsMenu = () => {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+  //       setOpen(false);
+  //     }
+  //   };
+
+  //   if (open) {
+  //     document.addEventListener("mousedown", handleClickOutside);
+  //   }
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [open]);
+
+  const pathname = usePathname();
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
-    <div className={css.menuContainer}>
+    <div className={css.menuContainer} ref={menuRef}>
       <button
         className={css.menuButton}
         onClick={() => setOpen((prev) => !prev)}
@@ -20,10 +44,10 @@ const TagsMenu = () => {
 
       {open && (
         <ul className={css.menuList}>
-          {tags.map((tag) => (
-            <li key={tag} className={css.menuItem}>
-              <Link href={`/notes?tag=${tag}`} className={css.menuLink}>
-                {tag}
+          {tags.map((tagName) => (
+            <li key={tagName} className={css.menuItem}>
+              <Link href={`/notes/filter/${tagName}`} className={css.menuLink}>
+                {tagName}
               </Link>
             </li>
           ))}

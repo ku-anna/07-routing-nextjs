@@ -11,7 +11,7 @@ interface NotesHttpResponse {
 // TAGS
 export type Tag = "Work" | "Todo" | "Personal" | "Meeting" | "Shopping";
 export const tags: Tag[] = ["Work", "Todo", "Personal", "Meeting", "Shopping"];
-export async function fetchNotesByTag(tag: Tag) {
+export async function fetchNotesByTag(tagName: Tag) {
   return Promise.resolve([]);
 }
 

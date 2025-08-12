@@ -2,7 +2,7 @@ import Link from "next/link";
 import css from "@/app/notes/filter/@sidebar/Sidebar.module.css";
 
 const NotesSidebar = async () => {
-  const localTags = ["Work", "Todo", "Personal", "Meeting", "Shopping"];
+  const localTags = ["All", "Work", "Todo", "Personal", "Meeting", "Shopping"];
 
   return (
     <ul className={css.menuList}>

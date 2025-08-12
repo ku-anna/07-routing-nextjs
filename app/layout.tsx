@@ -38,7 +38,6 @@ export default function RootLayout({
 
           <main>
             {children}
-            <NotesSidebar />
             {modal}
           </main>
 

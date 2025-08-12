@@ -11,22 +11,6 @@ const TagsMenu = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-  //       setOpen(false);
-  //     }
-  //   };
-
-  //   if (open) {
-  //     document.addEventListener("mousedown", handleClickOutside);
-  //   }
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [open]);
-
   const pathname = usePathname();
   useEffect(() => {
     setOpen(false);
